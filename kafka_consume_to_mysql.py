@@ -114,10 +114,10 @@ if __name__ == '__main__':
                     msg_dict = ast.literal_eval(msgValue)
                     print(msg_dict['power'])
                     # print(msg_dict['userId'],msg_dict['brand'],msg_dict['type'])
-                    #执行sql语句
+                    #執行sql語句
                     # try:
                     with connection.cursor() as cursor:
-                        # 执行sql语句，插入记录
+                        # 插入紀錄
                         # sql = 'INSERT INTO car_estimation (userId,brand,type,year,cc,power,sys,time,auto_chair) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'
                         sql = 'INSERT INTO car_estimation (userId,brand,type,year,cc,power,sys,time,auto_chair) VALUES (%s, %s,%s,%s,%s,%s,%s,%s,%s)'
                         # cursor.execute(sql, ('Robin2', 'Zhyea', tomorrow, 'M', date(1988, 6, 14)));
@@ -126,7 +126,7 @@ if __name__ == '__main__':
                         elif msg_dict['hand'] == 1:
                             sys = '手排'
                         cursor.execute(sql, (msg_dict['userId'], msg_dict['brand'],msg_dict['type'],2020-int(msg_dict['year']),int(msg_dict['cc'])*1000,msg_dict['power'],sys,msg_dict['time'],msg_dict['auto_chair']));
-                    # 没有设置默认自动提交，需要主动提交，以保存所执行的语句
+                    # 沒有設置默認自動提交,需要自動提交,已保存所執行的語句
                     connection.commit()
 
                     # finally:
